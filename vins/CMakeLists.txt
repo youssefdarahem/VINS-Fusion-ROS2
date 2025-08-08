@@ -77,6 +77,12 @@ install(
   DESTINATION share/${PROJECT_NAME}
 )
 
+# Install config files
+install(
+  DIRECTORY config
+  DESTINATION share/${PROJECT_NAME}
+)
+
 # Install nodes
 install(
   TARGETS vins_node
