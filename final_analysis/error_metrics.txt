@@ -1,0 +1,28 @@
+VINS-GPS Trajectory Error Analysis
+========================================
+
+Dataset Information:
+  Points analyzed: 1,190
+  Duration: 118.9 seconds
+  Average frequency: 10.0 Hz
+
+Position Errors (meters):
+  Mean X error: -0.000000 ± 5.427305
+  Mean Y error: -0.000000 ± 5.197540
+  Mean Z error: -6.255517 ± 0.784386
+  Mean 2D error: 6.810745 ± 3.169353
+  Mean 3D error: 9.458217 ± 2.591642
+
+Root Mean Square Errors (RMSE):
+  RMSE X: 5.425024 m
+  RMSE Y: 5.195356 m
+  RMSE Z: 6.304462 m
+  RMSE 2D: 7.511498 m
+  RMSE 3D: 9.806571 m
+
+Error Distribution:
+  50th percentile (median): 5.749339 m
+  95th percentile: 12.304505 m
+  99th percentile: 18.115729 m
+  Maximum 2D error: 18.692656 m
+  Maximum 3D error: 19.538996 m

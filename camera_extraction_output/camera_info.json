@@ -1,0 +1,80 @@
+{
+  "header": {
+    "frame_id": "camera_left",
+    "timestamp": {
+      "sec": 1653511465,
+      "nanosec": 60517088
+    }
+  },
+  "image_dimensions": {
+    "width": 1440,
+    "height": 1080
+  },
+  "camera_matrix": {
+    "data": [
+      853.17,
+      0.0,
+      780.32,
+      0.0,
+      852.06,
+      520.69,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "rows": 3,
+    "cols": 3,
+    "fx": 853.17,
+    "fy": 852.06,
+    "cx": 780.32,
+    "cy": 520.69
+  },
+  "distortion_model": "plumb_bob",
+  "distortion_coefficients": [
+    -0.3915,
+    0.1987,
+    -0.0585,
+    -6.9e-14,
+    -4.24e-14
+  ],
+  "rectification_matrix": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "projection_matrix": {
+    "data": [
+      853.17,
+      0.0,
+      780.32,
+      0.0,
+      0.0,
+      852.06,
+      520.69,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    "rows": 3,
+    "cols": 4
+  },
+  "binning": {
+    "x": 0,
+    "y": 0
+  },
+  "roi": {
+    "x_offset": 0,
+    "y_offset": 0,
+    "height": 0,
+    "width": 0,
+    "do_rectify": false
+  }
+}

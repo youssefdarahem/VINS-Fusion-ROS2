@@ -1,0 +1,46 @@
+VINS-GPS Trajectory Error Analysis - Detailed Report
+============================================================
+
+DATASET INFORMATION
+------------------------------
+Analysis Date: 2025-08-09 16:08:28
+Points analyzed: 1,507
+Duration: 162.3 seconds (2.7 minutes)
+Average frequency: 9.3 Hz
+
+TRAJECTORY COMPARISON
+------------------------------
+VINS total distance: 158.02 m
+GPS total distance: 158.79 m
+Distance difference: 0.77 m (0.5%)
+
+POSITION ERRORS (meters)
+------------------------------
+Mean X error: -0.000000 ± 2.386887
+Mean Y error: +0.000000 ± 4.607056
+Mean Z error: -0.000000 ± 0.787365
+Mean 2D error: 3.870767 ± 3.453898
+Mean 3D error: 4.005948 ± 3.388785
+
+ROOT MEAN SQUARE ERRORS (RMSE)
+------------------------------
+RMSE X: 2.386095 m
+RMSE Y: 4.605527 m
+RMSE Z: 0.787104 m
+RMSE 2D: 5.186939 m
+RMSE 3D: 5.246319 m
+
+ERROR DISTRIBUTION STATISTICS
+------------------------------
+Minimum 2D error: 0.050329 m
+Maximum 2D error: 15.821575 m
+50th percentile (median): 2.744176 m
+95th percentile: 12.036268 m
+99th percentile: 14.970676 m
+
+PERFORMANCE ASSESSMENT
+------------------------------
+Points with <1m error: 194 (12.9%)
+Points with <2m error: 523 (34.7%)
+Points with >5m error: 329 (21.8%)
+

@@ -15,7 +15,7 @@ class RealtimePathVisualizer(Node):
         super().__init__('realtime_path_visualizer')
 
         # Data storage
-        self.max_points = 2000  # Maximum number of points to display
+        self.max_points = 3000  # Maximum number of points to display
         self.x_data = deque(maxlen=self.max_points)
         self.y_data = deque(maxlen=self.max_points)
         self.z_data = deque(maxlen=self.max_points)

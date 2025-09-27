@@ -1,0 +1,9 @@
+Sample Image Information
+========================
+
+Image shape: (1080, 1440, 3)
+Channels: 3
+Data type: uint8
+Encoding: BGR (OpenCV default)
+Timestamp: 1653511465.060517
+Frame ID: camera_left

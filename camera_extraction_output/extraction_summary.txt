@@ -1,0 +1,13 @@
+Camera Extraction Summary
+Generated: 2025-08-08 12:21:13
+========================
+
+Camera info received: ✅ Yes
+Total images processed: 682
+Sample images saved: 5
+
+Camera specifications:
+  Resolution: 1440x1080
+  Focal length: fx=853.17, fy=852.06
+  Principal point: cx=780.32, cy=520.69
+  Distortion model: plumb_bob

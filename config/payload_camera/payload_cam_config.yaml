@@ -6,7 +6,8 @@ imu: 1         # Enable IMU since bag contains /imu/data
 num_of_cam: 1  # Single camera setup
 
 imu_topic: "/imu/data"              # Topic for IMU data
-image0_topic: "/camera/image_color" # Topic for camera images
+# image0_topic: "/camera/image_color" # Topic for camera images
+image0_topic: "/camera/image_mono" # Topic for camera images
 output_path: "~/vins_fusion" # Output path for results
 
 cam0_calib: "camera_payload_down.yaml"
@@ -39,7 +40,7 @@ multiple_thread: 1
 #feature tracker parameters
 max_cnt: 200            # max feature number in feature tracking
 min_dist: 30            # min distance between two features 
-freq: 10                # frequence (Hz) of publish tracking result. At least 10Hz for good estimation. If set 0, the frequence will be same as raw image 
+freq: 20                # frequence (Hz) of publish tracking result. At least 10Hz for good estimation. If set 0, the frequence will be same as raw image 
 F_threshold: 1.0        # ransac threshold (pixel)
 show_track: 1           # publish tracking image as topic
 equalize: 1             # if image is too dark or light, trun on equalize to find enough features

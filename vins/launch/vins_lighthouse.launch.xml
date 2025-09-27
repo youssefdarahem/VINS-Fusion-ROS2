@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <arg name="config_path" default="/home/joey/Desktop/dev/VINS-Fusion-ROS2/config/lighthouse/lighthouse_mono_imu_config.yaml"/>
+    <arg name="vins_config" default="$(var config_path)"/>
+    <arg name="bag_file" default=""/>
+    <arg name="bag_rate" default="1.0"/>
+    
+    <!-- Image republisher to convert compressed mono images to raw -->
+    <node name="image_republisher" pkg="image_transport" exec="republish" 
+          args="compressed raw" output="screen">
+        <remap from="compressed" to="/camera/image_mono_compressed/compressed"/>
+        <remap from="raw" to="/camera/image_mono"/>
+    </node>
+    
+    <!-- Play ROS2 bag file with clock -->
+    <executable cmd="ros2 bag play $(var bag_file) --rate $(var bag_rate) --clock" 
+                cwd="$(env HOME)" name="bag_player" output="screen" 
+                unless="$(eval '$(var bag_file)' == '')" />
+    
+    <!-- VINS estimator node -->
+    <node name="vins_estimator" pkg="vins" exec="vins_node" args="$(var vins_config)" output="screen">
+        <!-- Add some delay to let image republisher start -->
+        <param name="use_sim_time" value="true"/>
+    </node>
+    
+    <!-- RViz visualization -->
+    <include file="$(find-pkg-share vins)/launch/vins_rviz.launch.xml"/>
+    
+</launch>

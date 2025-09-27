@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <arg name="config_path" default="$(find-pkg-share vins)/config/realsense_d435i/realsense_stereo_imu_config.yaml"/>
+    <arg name="vins_config" default="$(var config_path)"/>
+    <arg name="bag_file" default=""/>
+    <arg name="bag_rate" default="1.0"/>
+    
+    <!-- Play ROS2 bag file -->
+    <executable cmd="ros2 bag play $(var bag_file) --rate $(var bag_rate)" cwd="$(env HOME)" name="bag_player" output="screen" if="$(eval '$(var bag_file)' != '')" />
+    
+    <!-- VINS estimator node -->
+    <node name="vins_estimator" pkg="vins" exec="vins_node" args="$(var vins_config)" output="screen"/>
+    
+    <!-- RViz visualization -->
+    <include file="$(find-pkg-share vins)/launch/vins_rviz.launch.xml"/>
+    
+</launch>

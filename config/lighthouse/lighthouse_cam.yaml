@@ -1,0 +1,18 @@
+%YAML:1.0
+---
+model_type: PINHOLE
+camera_name: lighthouse_camera
+image_width: 1440
+image_height: 1080
+
+# Camera intrinsic parameters (extracted from bag camera_info)
+distortion_parameters:
+  k1: -0.3915
+  k2: 0.1987
+  p1: -0.0585
+  p2: -6.9e-14
+projection_parameters:
+  fx: 853.17
+  fy: 852.06
+  cx: 780.32
+  cy: 520.69

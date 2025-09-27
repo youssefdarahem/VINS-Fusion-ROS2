@@ -1,0 +1,74 @@
+%YAML:1.0
+
+#common parameters - ULTRA CONSERVATIVE FOR DEBUGGING
+imu: 1         
+num_of_cam: 1  
+
+imu_topic: "/imu/data"
+image0_topic: "/camera/image_mono"
+output_path: "/tmp/vins_output/"
+
+cam0_calib: "lighthouse_cam.yaml"
+image_width: 1440
+image_height: 1080
+
+# GPU acceleration - ALL DISABLED
+use_gpu         : 0
+use_gpu_acc_flow: 0
+use_gpu_ceres   : 0
+   
+# Extrinsic parameter - FIXED (no optimization)
+estimate_extrinsic: 0   # Trust the following transformation completely
+
+# Simple identity transformation (camera and IMU aligned)
+body_T_cam0: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: d
+   data: [1.0, 0.0, 0.0, 0.0,
+          0.0, 1.0, 0.0, 0.0,
+          0.0, 0.0, 1.0, 0.0,
+          0.0, 0.0, 0.0, 1.0]
+
+# Single thread for debugging
+multiple_thread: 0
+
+# Very conservative feature tracking
+max_cnt: 50             # Reduce feature count for stability
+min_dist: 50            # Increase minimum distance between features
+freq: 5                 # Lower frequency for stability
+F_threshold: 2.0        # More relaxed RANSAC threshold
+show_track: 1           
+equalize: 1             
+fisheye: 0              
+
+# Very conservative optimization
+max_solver_time: 0.2    # Much more time for solver
+max_num_iterations: 20  # More iterations
+keyframe_parallax: 20.0 # Higher threshold for keyframe selection
+
+# Very conservative IMU parameters (high noise assumptions)
+acc_n: 0.5              # Very high accelerometer noise
+gyr_n: 0.1              # Very high gyroscope noise  
+acc_w: 0.1              # Very high accelerometer bias
+gyr_w: 1.0e-3           # Very high gyroscope bias
+g_norm: 9.81007         
+
+# All advanced features DISABLED
+loop_closure: 0                    
+fast_relocalization: 0             
+load_previous_pose_graph: 0        
+pose_graph_save_path: "/tmp/vins_output/pose_graph/"
+
+# Time synchronization - disabled initially
+estimate_td: 0                     
+td: 0.0                            
+
+# Rolling shutter - disabled
+rolling_shutter: 0                 
+rolling_shutter_tr: 0              
+
+# Minimal visualization
+save_image: 0                      # Disable to reduce computational load
+visualize_imu_forward: 0           
+visualize_camera_size: 0.4

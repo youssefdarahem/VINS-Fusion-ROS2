@@ -1,0 +1,77 @@
+%YAML:1.0
+
+#common parameters
+#support: 1 imu 1 cam; 1 imu 2 cam: 2 cam; 
+imu: 1         
+num_of_cam: 1  
+
+imu_topic: "/imu/data"
+image0_topic: "/camera/image_mono"
+output_path: "/tmp/vins_output/"
+
+cam0_calib: "lighthouse_cam.yaml"
+image_width: 1440
+image_height: 1080
+
+# GPU acceleration (disable for stability)
+use_gpu         : 0
+use_gpu_acc_flow: 0
+use_gpu_ceres   : 1
+   
+# Extrinsic parameter between IMU and Camera.
+estimate_extrinsic: 2   # 0  Have an accurate extrinsic parameters. We will trust the following imu^R_cam, imu^T_cam, don't change it.
+                        # 1  Have an initial guess about extrinsic parameters. We will optimize around your initial guess.
+                        # 2  Don't know anything about extrinsic parameters. Calibrate them online.
+
+# Fixed extrinsic parameters (identity transformation as starting point)
+body_T_cam0: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: d
+   data: [1.0, 0.0, 0.0, 0.0,
+          0.0, 1.0, 0.0, 0.0,
+          0.0, 0.0, 1.0, 0.0,
+          0.0, 0.0, 0.0, 1.0]
+
+#Multiple thread support
+multiple_thread: 1
+
+#feature traker paprameters
+max_cnt: 200            # max feature number in feature tracking
+min_dist: 30            # min distance between two features 
+freq: 40                # frequence (Hz) of publish tracking result. At least 10Hz for good estimation. If set 0, the frequence will be same as raw image 
+F_threshold: 1.0        # ransac threshold (pixel)
+show_track: 1           # publish tracking image as topic
+equalize: 1             # if image is too dark or light, trun on equalize to find enough features
+fisheye: 1              # if using fisheye, trun on it. A circle mask will be loaded to remove edge noisy points
+
+#optimization parameters
+max_solver_time: 0.08  # max solver itration time (ms), to guarantee real time
+max_num_iterations: 8   # max solver itrations, to guarantee real time
+keyframe_parallax: 10.0 # keyframe selection threshold (pixel)
+
+#imu parameters       The more accurate parameters you provide, the better performance
+acc_n: 0.2           # accelerometer measurement noise standard deviation. #0.2   0.04
+gyr_n: 0.05          # gyroscope measurement noise standard deviation.     #0.05  0.004
+acc_w: 0.02          # accelerometer bias random work noise standard deviation.  #0.02
+gyr_w: 4.0e-5        # gyroscope bias random work noise standard deviation.     #4.0e-5
+g_norm: 9.81007      # gravity magnitude
+
+#loop closure parameters
+loop_closure: 0                    # start loop closure (disable for stability)
+fast_relocalization: 0             # start fast relocalization (disable for stability)
+load_previous_pose_graph: 0        # load and reuse previous pose graph; load from 'pose_graph_save_path'
+pose_graph_save_path: "/tmp/vins_output/pose_graph/" # save and load path
+
+#unsynchronization parameters
+estimate_td: 0                     # online estimate time offset between camera and imu
+td: 0.0                            # initial value of time offset. unit: s. readed image clock + td = real image clock (IMU clock)
+
+#rolling shutter parameters
+rolling_shutter: 0                 # 0: global shutter camera, 1: rolling shutter camera
+rolling_shutter_tr: 0              # unit: s. rolling shutter read out time per frame (from data sheet). 
+
+#visualization parameters
+save_image: 1                      # save image in pose graph for visualization purpose; you can close this function by setting 0 
+visualize_imu_forward: 0           # output imu forward propogation to achieve low latency and high frequence results
+visualize_camera_size: 0.4         # size of camera marker in RVIZ

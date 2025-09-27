@@ -1,0 +1,34 @@
+VINS-GPS Error Analysis Summary
+===============================
+
+Analysis generated: 2025-08-08 12:35:31
+Bag: lighthouse_francis_sample
+
+Data Summary:
+  VINS messages: 2272
+  GPS messages: 1578
+  Global path messages: 2272
+  Synchronized points: 2272
+
+2D Position Error Statistics:
+  Mean error: 542.823 m
+  RMSE: 744.759 m
+  Standard deviation: 509.911 m
+  Maximum error: 1556.657 m
+  Minimum error: 1.230 m
+  Median error: 361.549 m
+  95th percentile: 1503.804 m
+
+3D Position Error Statistics:
+  Mean error: 544.167 m
+  RMSE: 745.219 m
+  Standard deviation: 509.149 m
+  Maximum error: 1556.993 m
+  Minimum error: 1.265 m
+  Median error: 362.514 m
+  95th percentile: 1504.062 m
+
+Component-wise RMSE:
+  X-axis: 461.055 m
+  Y-axis: 584.888 m
+  Z-axis: 26.184 m

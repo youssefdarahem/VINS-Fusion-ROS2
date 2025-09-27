@@ -3,6 +3,7 @@
 ## ROS2 version of VINS-Fusion.
 
 ### Notices
+
 - code has been updated so that the vins package can be executed via ros2 run or ros2 launch
 - but Rviz config cannot be saved due to some issue.. still fixing
 - GPU enable/disable features also have been added: refer [EuRoC config](https://github.com/zinuok/VINS-Fusion-ROS2/blob/main/config/euroc/euroc_stereo_imu_config.yaml#L19-L21) (refered from [here](https://github.com/pjrambo/VINS-Fusion-gpu) and [here](https://github.com/pjrambo/VINS-Fusion-gpu/issues/33#issuecomment-1097642597))
@@ -12,6 +13,7 @@
   ```
 
 ### Prerequisites
+
 - **System**
   - Ubuntu 20.04
   - ROS2 foxy
@@ -21,17 +23,18 @@
   - [Ceres Solver-2.1.0](http://ceres-solver.org/installation.html) (you can refer [here](https://github.com/zinuok/VINS-Fusion#-ceres-solver-1); just edit 1.14.0 to 2.1.0 for install.)
   - [Eigen-3.3.9](https://github.com/zinuok/VINS-Fusion#-eigen-1)
 
-
 ### sensor setup
+
 - camera: Intel realsense D435i
 - using following shell script, you can install realsense SDK with ROS2 package.
+
 ```bash
 chmod +x realsense_install.sh
 bash realsense_install.sh
 ```
 
-
 ### build
+
 ```bash
 cd $(PATH_TO_YOUR_ROS2_WS)/src
 git clone https://github.com/zinuok/VINS-Fusion-ROS2
@@ -40,6 +43,7 @@ colcon build --symlink-install && source ./install/setup.bash && source ./instal
 ```
 
 ### run
+
 ```bash
 # vins
 ros2 run vins $(PATH_TO_YOUR_VINS_CONFIG_FILE)
@@ -48,35 +52,47 @@ ros2 run vins $(PATH_TO_YOUR_VINS_CONFIG_FILE)
 ros2 launch vins vins_rviz.launch.xml
 ```
 
-
 ## play bag recorded at ROS1
-Unfortunately, you can't just play back the bag file recorded at ROS1. 
+
+Unfortunately, you can't just play back the bag file recorded at ROS1.
 This is because the filesystem structure for bag file has been changed significantly.
 The bag file at ROS2 needs the folder with some meta data for each bag file, which is done using following commands.
+
 - you have to install [this pkg](https://gitlab.com/ternaris/rosbags)
+
 ```bash
 pip install rosbags
 ```
 
 - run
+
 ```bash
 export PATH=$PATH:~/.local/bin
 rosbags-convert foo.bag --dst /path/to/bar
 ```
 
-
-
-
-
-
 ## Original Readme:
 
 ## 8. Acknowledgements
+
 We use [ceres solver](http://ceres-solver.org/) for non-linear optimization and [DBoW2](https://github.com/dorian3d/DBoW2) for loop detection, a generic [camera model](https://github.com/hengli/camodocal) and [GeographicLib](https://geographiclib.sourceforge.io/).
 
 ## 9. License
+
 The source code is released under [GPLv3](http://www.gnu.org/licenses/) license.
 
 We are still working on improving the code reliability. For any technical issues, please contact Tong Qin <qintonguavATgmail.com>.
 
 For commercial inquiries, please contact Shaojie Shen <eeshaojieATust.hk>.
+
+---
+
+ros2 run image_transport republish compressed raw \
+ --ros-args \
+ -r in/compressed:=/camera/image_mono_compressed/compressed \
+ -r out:=/camera/image_mono &
+
+python video_display.py -t /camera/image_mono
+python realtime_path_visualizer.py
+ros2 run vins vins_node /home/joey/Desktop/dev/VINS-Fusion-ROS2/config/bellhouse/bellhouse_config.yaml
+ros2 bag play bell412_dataset1_sample/ --read-ahead-queue-size 40000

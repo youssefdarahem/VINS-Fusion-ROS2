@@ -1,0 +1,24 @@
+Camera Calibration Summary
+==========================
+
+Frame ID: camera_left
+Image Size: 1440 x 1080
+Distortion Model: plumb_bob
+
+Intrinsic Parameters:
+  fx = 853.1700
+  fy = 852.0600
+  cx = 780.3200
+  cy = 520.6900
+
+Camera Matrix K:
+  [  853.1700     0.0000   780.3200]
+  [    0.0000   852.0600   520.6900]
+  [    0.0000     0.0000     1.0000]
+
+Distortion Coefficients: array('d', [-0.3915, 0.1987, -0.0585, -6.9e-14, -4.24e-14])
+
+Projection Matrix P:
+  [  853.1700     0.0000   780.3200     0.0000]
+  [    0.0000   852.0600   520.6900     0.0000]
+  [    0.0000     0.0000     1.0000     0.0000]
