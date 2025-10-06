@@ -18,6 +18,7 @@ find_package(camera_models REQUIRED)
 
 find_package(OpenCV)
 find_package(Ceres REQUIRED)
+find_package(CURL REQUIRED)
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 find_package(Eigen3)
 
@@ -45,7 +46,7 @@ add_executable(loop_fusion_node
 # added from DEBUG
 ament_target_dependencies(loop_fusion_node camera_models rclcpp ament_index_cpp std_msgs sensor_msgs visualization_msgs nav_msgs cv_bridge OpenCV) # roslib) # does 'roslib' really need ??
 
-target_link_libraries(loop_fusion_node ${OpenCV_LIBS} ${CERES_LIBRARIES} ) #${catkin_LIBRARIES}  )
+target_link_libraries(loop_fusion_node ${OpenCV_LIBS} ${CERES_LIBRARIES} ${CURL_LIBRARIES} ) #${catkin_LIBRARIES}  )
 
 
 

@@ -3,3 +3,5 @@ install/*
 /log/*
 /bell412_dataset1_sample/*
 /lighthouse_francis_sample/*
+/camera_models/build/*
+/camera_models/install/*
