@@ -94,5 +94,5 @@ ros2 run image_transport republish compressed raw \
 
 python video_display.py -t /camera/image_mono
 python realtime_path_visualizer.py
-ros2 run vins vins_node /home/joey/Desktop/dev/VINS-Fusion-ROS2/config/bellhouse/bellhouse_config.yaml
+ros2 run vins vins_node /home/joey/Desktop/dev/VINS-Fusion-ROS2/config/euroc/euroc_mono_imu_config.yaml
 ros2 bag play bell412_dataset1_sample/ --read-ahead-queue-size 40000
