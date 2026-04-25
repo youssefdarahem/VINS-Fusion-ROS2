@@ -74,5 +74,28 @@
         "typeindex": "cpp",
         "typeinfo": "cpp",
         "variant": "cpp"
-    }
+    },
+    "ROS2.distro": "humble",
+    "python.autoComplete.extraPaths": [
+        "/home/joey/Desktop/dev/ShainTeam/ros2_ws/install/ui_pkg/lib/python3.10/site-packages",
+        "/home/joey/Desktop/dev/ShainTeam/ros2_ws/install/mission_generator/lib/python3.10/site-packages",
+        "/home/joey/Desktop/dev/ShainTeam/ros2_ws/install/mission_controller/lib/python3.10/site-packages",
+        "/home/joey/Desktop/dev/ShainTeam/ros2_ws/install/mavlink_connection/lib/python3.10/site-packages",
+        "/home/joey/Desktop/dev/ShainTeam/ros2_ws/install/kamikaze_pkg/lib/python3.10/site-packages",
+        "/home/joey/Desktop/dev/ShainTeam/ros2_ws/install/image_processing/lib/python3.10/site-packages",
+        "/home/joey/Desktop/dev/ShainTeam/ros2_ws/install/controller/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/joey/Desktop/dev/ShainTeam/ros2_ws/install/ui_pkg/lib/python3.10/site-packages",
+        "/home/joey/Desktop/dev/ShainTeam/ros2_ws/install/mission_generator/lib/python3.10/site-packages",
+        "/home/joey/Desktop/dev/ShainTeam/ros2_ws/install/mission_controller/lib/python3.10/site-packages",
+        "/home/joey/Desktop/dev/ShainTeam/ros2_ws/install/mavlink_connection/lib/python3.10/site-packages",
+        "/home/joey/Desktop/dev/ShainTeam/ros2_ws/install/kamikaze_pkg/lib/python3.10/site-packages",
+        "/home/joey/Desktop/dev/ShainTeam/ros2_ws/install/image_processing/lib/python3.10/site-packages",
+        "/home/joey/Desktop/dev/ShainTeam/ros2_ws/install/controller/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
 }
