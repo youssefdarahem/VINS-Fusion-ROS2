@@ -23,6 +23,7 @@ find_package(image_transport REQUIRED)
 
 find_package(OpenCV REQUIRED)
 find_package(Ceres REQUIRED)
+find_package(CURL REQUIRED)
 
 include_directories(${CERES_INCLUDE_DIRS})
 
@@ -53,7 +54,7 @@ add_library(vins_lib
     src/initial/initial_sfm.cpp
     src/initial/initial_ex_rotation.cpp
     src/featureTracker/feature_tracker.cpp)
-target_link_libraries(vins_lib  ${OpenCV_LIBS} ${CERES_LIBRARIES})
+target_link_libraries(vins_lib  ${OpenCV_LIBS} ${CERES_LIBRARIES} ${CURL_LIBRARIES})
 
 ament_target_dependencies(vins_lib rclcpp rcpputils std_msgs visualization_msgs geometry_msgs nav_msgs tf2 tf2_ros cv_bridge camera_models image_transport)
 

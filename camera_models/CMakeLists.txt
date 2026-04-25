@@ -64,8 +64,11 @@ add_library(camera_models
     src/gpl/gpl.cc
     src/gpl/EigenQuaternionParameterization.cc)
 
-target_link_libraries(Calibrations ${Boost_LIBRARIES} ${OpenCV_LIBS} ${CERES_LIBRARIES})
-target_link_libraries(camera_models ${Boost_LIBRARIES} ${OpenCV_LIBS} ${CERES_LIBRARIES})
+# Find CURL to resolve GDAL/NetCDF linking issues
+find_package(CURL REQUIRED)
+
+target_link_libraries(Calibrations ${Boost_LIBRARIES} ${OpenCV_LIBS} ${CERES_LIBRARIES} ${CURL_LIBRARIES})
+target_link_libraries(camera_models ${Boost_LIBRARIES} ${OpenCV_LIBS} ${CERES_LIBRARIES} ${CURL_LIBRARIES})
 
 
 # Install

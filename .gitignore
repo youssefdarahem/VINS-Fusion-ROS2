@@ -5,3 +5,5 @@ install/*
 /lighthouse_francis_sample/*
 /.vscode/*
 *.mp4
+/camera_models/build/*
+/camera_models/install/*
